@@ -1,61 +1,283 @@
-# Praktisk web - smartlights
+# Smartlight panel
 
-![](https://github.com/rts-cmk-opgaver/praktikperiode-smartlights/blob/main/ctrlpanel.png)
-<br>*Ikke i korrekt skala*
+https://github.com/rts-cmk-wu06/smartlight-ui-Dragonashes
+https://github.com/Dragonashes-test/smartlight-ui-Dragonashes
 
-## Opgavebeskrivelse
+## smartlight paere
 
-Til brug for det kommende valgfri specialefag om programmering og styring af fysiske enheder, skal I udvikle et brugerinterface til at kontrollere lyset i et hus. Se i afsnittet 'krav og delopgaver' for at få overblik over opgaven. 
-Du bestemmer selv, hvilket framework du vil bruge (React, Vue, Next, Gatsby, etc...). 
+### setup
 
-**Github**<br>
-   1. Der **skal pushes dagligt**, så du har en backup online i tilfælde af computer nedbrud og andet. 
-   2. De enkelte komponenter **skal udvikles på selvstændige branches**.
-   3. Der **skal foretages et merge til master** når et komponenet er færdigt, men lad være med at slette branchen, da dine branches er med til at give indblik i din proces.
-   
+https://developers.meethue.com/develop/get-started-2/
+https://developers.meethue.com/develop/application-design-guidance/color-conversion-formulas-rgb-to-xy-and-back/
 
-**Start med at**<br>
-Analysere layoutet for at identificere komponenterne og gå herefter igang med at udvikle de enkelte komponenter. Det er vigtigt at du sikre dig at enkelte "elementer" ikke udvikles mere end én gang! Går noget igen, er der *formentligt* et komponent...
+Aske 6
 
-## Formål
-Opgavens formål er at opbygge rutine og erfaring i arbejdsgangene omkring udvikling.
+DMLEH72D9MR
 
-![The Karate Kid - wax on, wax off](https://github.com/rts-cmk-opgaver/praktikperiode-uicomponents/blob/master/giphy.gif)
+Hue Bridge
+ID: ECB5FAFFFE25A28F
+ip: 192.168.8.100
+port: 443
 
-## Krav og valgfrie dele
-Opgaven indeholder tre hoved-krav som skal opfyldes. Kravene er opstillet i rækkefølge, så du kan bruge dem som en slags guide til arbejdet. Herudover er der nogle ekstraopgaver, som ikke er krav, men som du kan udfordre dig selv med. Disse er ekstra udfordringer og behøver ikke være løst, for at opfylde kravet til opgven.
+username: Mhy3mdT8lIahLudmPonJwFEKVDDCbPkv8KM6niq8
 
-  1. Opgaven skal opbygges komponentbaseret. De enkelte komponenter skal udvikles på selvstændige github branches.
-  2. Løsningen skal bruge fx context eller useReducer hooket til at samle alle data, og senere gøre det lettere at kommunikere med Philips Hue api'et - så data som fx. navne på rummene og antallet af pærer mv. trækkes fra context eller reducer.
-  For at simplificere opgaven, kan det være en idé, først at tilføje data direkte i context eller reducer-filen, for herefter at extracte data til en ekstern json-fil som fetches.
-  3. Tilføj animationer og overgange mellem de enkelte views (video i demo-mappen).  *-- Make it work, make it pretty... --*
-  
-  **Ekstra, valgfri opgaver, i ikke prioriteret rækkefølge:** 
-  * React Router er opdateret og er et forsøg på at samle "det bedste fra begge verdener". Brug React Router i stedet for Reach Router.
-  * Få applikationen til at 'huske' indstillinger for lysstyrke og farve for de enkelte pærer (localstorage/cookies).
-  * Tilføj et splash screen (evt. med animationer) til applikationen.
-  * Tilføj et login-flow til applikationen med random brugernavn og adgangskode.
-  * Tilføj check på login, så kun en bruger med brugernavnet 'user' og adgangskoden '1234' kan logge ind.
-  * Download de brugte skrifter og tilføj dem til din css-fil så du ikke er afhængig af Googles font-cdn.
-  
-## Varighed
-Du har 5 arbejdsdage til at løse praktikopgaven.
+http://192.168.8.100/debug/clip.html
 
-## Applikation tech stack
-ReactJS<br>
-React Context<br>
-TailwindCSS el.
-Framer Motion el.
-Github / Netlify (deployment)<br>
+### light test
 
-## Matrialer
-Du skal downloade XD filen herfra: https://dribbble.com/shots/7849062-Smart-lights-Free-Adobe-XD
+/api
+POST
+body:
+{"devicetype":"aske_hue_app#android Aske"}
 
-### Font
-Fonten som bruges i opgaven hedder Circular. Det er dog en købefont. <br>Du kan bruge Google fonten Montserrat som alternativ.
+/api/newdeveloper
+GET
 
-## Aflevering
-Del-aflevering af det kodede layout tirsdag d. 8. feb 2022. kl. 12:00<br>
-Du har afleveret når din applikation er hostet på Netlify eller github pages og linket hertil er sat ind herunder.<br><br>
-**Projekt url:** Skriv din Netlify / github pages adresse her! Fx.: https://detsmartelys.netlify.app
+/GET
+http://192.168.8.100/api/Mhy3mdT8lIahLudmPonJwFEKVDDCbPkv8KM6niq8/lights
+http://192.168.8.100/api/Mhy3mdT8lIahLudmPonJwFEKVDDCbPkv8KM6niq8/lights/6
+  /api/Mhy3mdT8lIahLudmPonJwFEKVDDCbPkv8KM6niq8/lights/6
 
+### light control
+
+#### scene
+
+/api/Mhy3mdT8lIahLudmPonJwFEKVDDCbPkv8KM6niq8/scenes
+GET
+
+/api/Mhy3mdT8lIahLudmPonJwFEKVDDCbPkv8KM6niq8/scenes
+POST
+{
+  "name":"Test scene",
+  "lights":["6"],
+  "recycle":true
+}
+
+{
+	"name": "Test scene 3",
+	"type": "GroupScene",
+	"group": "2",
+	"lights": [
+		"6"
+	],
+	"owner": "Mhy3mdT8lIahLudmPonJwFEKVDDCbPkv8KM6niq8",
+	"recycle": false,
+	"locked": false,
+	"appdata": {
+		"version": 1,
+		"data": "u0g1M_r02"
+	},
+	"picture": "",
+	"lastupdated": "2022-08-09T09:21:18",
+	"version": 2
+}
+
+/api/Mhy3mdT8lIahLudmPonJwFEKVDDCbPkv8KM6niq8/scenes/MacK2B8us3B74ba
+PUT
+{
+  "lightstates": {
+    "6": {
+      "on": true,
+      "bri": 254,
+      "xy": [
+        0.3104,
+        0.3282
+      ]
+    }
+  }
+}
+
+/api/Mhy3mdT8lIahLudmPonJwFEKVDDCbPkv8KM6niq8/scenes
+POST
+{
+  "name":"Test scene 3",
+  "lights":["6"],
+  "recycle":true
+}
+		"success": {
+			"id": "LHX53hogYUwLH6Y"
+		}
+
+/api/Mhy3mdT8lIahLudmPonJwFEKVDDCbPkv8KM6niq8/scenes/LHX53hogYUwLH6Y
+PUT
+{
+  "lightstates": {
+    "6": {
+      "on": true,
+      "bri": 254,
+      "xy": [
+        0.3104,
+        0.3282
+      ]
+    }
+  }
+}
+
+/api/Mhy3mdT8lIahLudmPonJwFEKVDDCbPkv8KM6niq8/scenes/LHX53hogYUwLH6Y
+PUT
+{
+  "type": "GroupScene",
+  "group": "2",
+  "appdata": {
+    "version": 1,
+    "data": "u0g1M_r02"
+  },
+}
+
+/api/Mhy3mdT8lIahLudmPonJwFEKVDDCbPkv8KM6niq8/scenes
+POST
+{
+  "name":"Test scene 4",
+  "lights":["6"],
+  "recycle":true,
+  "type": "GroupScene",
+  "group": "2",
+}
+
+#### lights
+
+light on/off
+/api/Mhy3mdT8lIahLudmPonJwFEKVDDCbPkv8KM6niq8/lights/6/state
+PUT
+body:
+{"on":false}
+
+PUT single color
+body:
+/api/Mhy3mdT8lIahLudmPonJwFEKVDDCbPkv8KM6niq8/lights/6/state
+{
+  "on": true,
+  "bri": 100,
+  "hue": 46039,
+  "sat": 254,
+  "effect": "none"
+}
+
+color rotation
+  might be possible to set limited colors but might need scenes for that
+  kan jeg bruge multiple xy ??
+PUT
+body:
+/api/Mhy3mdT8lIahLudmPonJwFEKVDDCbPkv8KM6niq8/lights/6/state
+{
+  "bri": 100,
+  "hue": 46039,
+  "sat": 254,
+  "effect": "colorloop",
+  "xy": [
+    0.1540,
+    0.0799
+  ]
+}
+
+#### groups
+
+groups api
+/api/Mhy3mdT8lIahLudmPonJwFEKVDDCbPkv8KM6niq8/groups
+GET
+
+/api/Mhy3mdT8lIahLudmPonJwFEKVDDCbPkv8KM6niq8/groups
+POST
+
+{
+  "name": "Aske room 1",
+  "type": "Room",
+  "class": "Aske room 1",
+  "lights": [
+    "6",
+    "22",
+    "27"
+  ]
+}
+
+{
+  "lights": [
+    "32",
+    "36",
+    "47"
+  ],
+  "name": "Aske room 1",
+  "type": "LightGroup"
+}
+
+/api/Mhy3mdT8lIahLudmPonJwFEKVDDCbPkv8KM6niq8/groups/3
+GET
+
+/api/Mhy3mdT8lIahLudmPonJwFEKVDDCbPkv8KM6niq8/groups/3/action
+PUT
+{
+  "on": true
+}
+
+##### list of groups
+
+soveværelse 21
+  6
+  49
+Bad 8
+  47
+spa 1
+  57
+entre 20
+  48
+Terrasse 4
+  27
+  56
+  22
+køkken 11
+  52
+  53
+spisestue 2
+  50
+  36
+lounge 13
+  58
+  59
+
+#### light param doc
+
+max 10 requests per second
+man kan ikke finde selvlavede grupper fra api i philips app.
+on
+  false
+  true
+bri min 0 max 254
+  bri 0 != off
+hue runs from 0 to 65535
+effect
+  none
+  colorloop
+    colorloop skal bruge XY
+  colortemperature
+    "ct": 500,
+
+## run
+
+npm uninstall -g create-react-app
+npm uninstall create-react-app
+npx create-react-app smartlightpanel
+
+cd
+npm install
+npm start
+
+npm i react-router-dom
+npm i @emotion/react
+npm i axios
+npm i cie-rgb-color-converter
+npm i lodash
+
+## links
+
+live demo
+https://xd.adobe.com/view/6c43f4a1-d697-4507-626f-5659beadf177-1a72/
+font
+https://www.fontsquirrel.com/fonts/montserrat
+assets
+https://dribbble.com/shots/7849062-Smart-lights-Free-Adobe-XD
+
+## svg react fix
+
+dette værktøj fikser SVG filer fra inkscape til reactjs
+npm -g install svgo
+svgo balcone.svg -o balcone2.svg

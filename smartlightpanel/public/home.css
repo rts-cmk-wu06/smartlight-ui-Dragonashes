@@ -1,0 +1,86 @@
+h1 {
+  color: #fff;
+  z-index: 0;
+}
+
+h2 {
+  color: #002d67;
+  display: flex;
+  padding-left: 30px;
+}
+
+.headergrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: #0a4da2;
+}
+
+.profileimage {
+  width: 50px;
+  height: 50px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  align-self: center;
+  justify-self: end;
+  margin-right: 26px;
+}
+
+.profileimageplacement {
+  grid-column: 1/span 2;
+  grid-row: 1;
+}
+
+.profileimg {
+  border-radius: 50%;
+  width: 46px;
+  height: 46px;
+  background: #ffb6c1;
+  border: 2px solid #fff;
+}
+
+.profileimgdot {
+  grid-column: 4;
+  grid-row: 1;
+  background: #ff9898;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.Home__bedroom {
+  background: #f6f8fb;
+  height: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  padding: 30px;
+}
+
+.home__bedroomstyle {
+  background: #fff;
+  border-radius: 20px;
+}
+
+.bedroomlink {
+  text-decoration: none;
+}
+
+.bedroomitemimage {
+  width: 40px;
+  height: 40px;
+}
+
+.locationlights {
+  color: #ffa939;
+}
+
+.bubbles {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  z-index: 0;
+  top: -109px;
+  left: -60px;
+  background: #2c60a4;
+}

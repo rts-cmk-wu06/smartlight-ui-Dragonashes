@@ -1,0 +1,20 @@
+.linestyle {
+  background: #edf2f8;
+  height: 15px;
+  margin: 0;
+  border: 0;
+}
+
+.footergrid {
+  background: #fff;
+  padding: 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 60px;
+  place-content: center;
+}
+
+.footerimg {
+  width: 40px;
+  height: auto;
+}
